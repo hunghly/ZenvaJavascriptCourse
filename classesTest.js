@@ -34,6 +34,7 @@
     console.log(hung.health); // it was changed due to us using setter eariler
 
 */
+/*
 
     function GameCharacter(name, xPos, health) {
         this.name = name;
@@ -71,6 +72,35 @@
     console.log(char1.health);
     char2.heal(1);
     console.log(char2.health);
+*/
 
+    class GameCharacter {
+
+        constructor(name, xPos, health) {
+            this.name = name;
+            this.xPos = xPos;
+            this.health = health;
+        }
+
+        move(x) {
+            this.xPos += x;
+        }
+    }
+
+    class HumanCharacter extends GameCharacter {
+
+        constructor(name, xPos, health) {
+            super(name, xPos, health);
+            this.classification = 'Human';
+        }
+    }
+    
+
+    let gc1 = new GameCharacter('Hung', 0, 100);
+    let hc1 = new HumanCharacter('Human', 0, 100)
+    gc1.move(5);
+    console.log(gc1.name);
+    console.log(gc1.xPos);
+    console.log(hc1.classification);
 
 }
